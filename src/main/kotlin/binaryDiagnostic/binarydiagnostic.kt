@@ -1,5 +1,9 @@
 package binaryDiagnostic
 
+import dive.divePartOne
+import dive.divePartTwo
+import util.getTestData
+
 fun binaryDiagnostic(input: List<String>): Int {
     var gamma: String = ""
     var epsilon: String = ""
@@ -36,11 +40,14 @@ fun binaryDiagnosticPartTwo(input: List<String>): Int {
         if (filteredCo2.size != 1) {
             filteredCo2 = filteredCo2.filterBy(i,"0") { it.minByOrNull { it.value.size }?.key!! }
         }
-        println("filtered oxygen: $filteredOx")
-        println("filtered co2: $filteredCo2")
-
     }
     val calcOx = filteredOx[0].toInt(2)
     val calcC02 = filteredCo2[0].toInt(2)
     return calcOx * calcC02
+}
+fun main() {
+    val testData = getTestData("input_03_binary_dia.txt")
+    println("Day Three - Binary Diagnostic")
+    println("Part One: ${binaryDiagnostic(testData)}")
+    println("Part Two: ${binaryDiagnosticPartTwo(testData)}")
 }

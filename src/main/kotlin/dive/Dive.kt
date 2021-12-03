@@ -1,5 +1,8 @@
 package dive
 
+import sonar_sweep.sonarSweep
+import util.getTestData
+
 
 fun divePartOne(command: List<Pair<String, Int>>): Int {
     var x = 0
@@ -39,4 +42,11 @@ fun divePartTwo(command: List<Pair<String, Int>>): Int {
         }
     }
     return x * y
+}
+
+fun main() {
+    val testData = getTestData("input_02_dive.txt").map { Pair(it.substringBefore(" "), it.substringAfter(" ").toInt()) }
+    println("Day Two - Dive")
+    println("Part One: ${divePartOne(testData)}")
+    println("Part Two: ${divePartTwo(testData)}")
 }
