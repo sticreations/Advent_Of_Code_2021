@@ -1,8 +1,6 @@
 package dive
 
-import sonar_sweep.sonarSweep
 import util.getTestData
-
 
 fun divePartOne(command: List<Pair<String, Int>>): Int {
     var x = 0

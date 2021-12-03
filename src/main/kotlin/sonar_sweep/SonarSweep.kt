@@ -2,21 +2,9 @@ package sonar_sweep
 
 import util.getTestData
 
-fun sonarSweep(sweeps: List<Int>): Int {
-    val increased = sweeps.mapIndexed { index, i ->
-        if (index == 0) {
-            false
-        } else i > sweeps.get(index - 1)
-    }
-    return increased.count { it }
-}
+fun sonarSweep(sweeps: List<Int>): Int =sweeps.zipWithNext{a,b -> b-a}.count { it>0 }
 
-fun sonarSweepPartTwo(sweeps: List<Int>): Int {
-    val slidingWindows = sweeps.mapIndexed { index, i ->
-        i.plus(sweeps.getOrElse(index + 1) { 0 }).plus(sweeps.getOrElse(index + 2) { 0 })
-    }
-    return sonarSweep(slidingWindows)
-}
+fun sonarSweepPartTwo(sweeps: List<Int>): Int = sonarSweep(sweeps.windowed(3,1, false) { (a,b,c) -> a+b+c })
 
 fun main() {
     val testData = getTestData("input_01_sonar_sweep.txt").map { it.toInt() }
