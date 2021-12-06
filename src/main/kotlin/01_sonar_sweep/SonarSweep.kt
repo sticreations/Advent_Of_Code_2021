@@ -1,4 +1,4 @@
-package sonar_sweep
+package `01_sonar_sweep`
 
 import util.getTestData
 
@@ -10,5 +10,5 @@ fun main() {
     val testData = getTestData("input_01_sonar_sweep.txt").map { it.toInt() }
     println("Day One - Sonar Sweep")
     println("Part One: ${sonarSweep(testData)}")
-    println("Part Two: ${sonar_sweep.sonarSweepPartTwo(testData)}")
+    println("Part Two: ${`01_sonar_sweep`.sonarSweepPartTwo(testData)}")
 }

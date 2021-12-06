@@ -1,4 +1,4 @@
-package binaryDiagnostic
+package `03_binaryDiagnostic`
 
 import util.getTestData
 
