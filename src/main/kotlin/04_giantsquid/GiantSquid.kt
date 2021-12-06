@@ -3,14 +3,11 @@ package giantsquid
 import util.column
 import util.getTestData
 
-
-
 fun List<Int>.checkForBingo(): Boolean {
     val equalRows = windowed(5, 5, false).map { row -> row.all { it == 0 } }
     if (equalRows.any { it }) {
         return true
     }
-    // check columns
     for (i in 0 until 5) {
         val equalCol = windowed(5, 5).column(i).all { it == 0 }
         if (equalCol) {
@@ -19,7 +16,6 @@ fun List<Int>.checkForBingo(): Boolean {
     }
     return false
 }
-
 
 fun squidOne(input: List<Int>, boards: MutableList<MutableList<Int>>, rowSize: Int = 5) =
     input.forEach { drawnNumber ->
@@ -31,7 +27,6 @@ fun squidOne(input: List<Int>, boards: MutableList<MutableList<Int>>, rowSize: I
             }
         }
     }
-
 
 fun squidTwo(
     input: List<Int>,
