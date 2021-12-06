@@ -1,21 +1,6 @@
 package Lanternfish
 
-import HydrothermalVents.HydroField
-import HydrothermalVents.test
 import util.getTestData
-
-class Lanternfish {
-}
-
-
-/**
- *
-After one day, its internal timer would become 2.
-After another day, its internal timer would become 1.
-After another day, its internal timer would become 0.
-After another day, its internal timer would reset to 6, and it would create a new lanternfish with an internal timer of 8.
-After another day, the first lanternfish would have an internal timer of 5, and the second lanternfish would have an internal timer of 7
- */
 
 fun MutableMap<Int, Long>.incAt(at: Int, amount: Long) = this.set(at, (this[at] ?: 0) + amount)
 
@@ -38,7 +23,6 @@ fun calculateFishes(fishes: List<Int>, days: Int): Long {
     }
     return allFish.values.sum()
 }
-
 
 fun main() {
     println("Day Six - Lanternfish")
